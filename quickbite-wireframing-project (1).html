@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QuickBite – Mobile App Wireframing Project</title>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--ink:#1f2328;--mute:#6a7078;--line:#d9d6cf;--wf:#e9e7e2;--wf2:#cfccc4;--acc:#e8a317;--acc-ink:#2b1d00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--card:#222427;--ink:#ecebe7;--mute:#9a9ea5;--line:#3a3d42;--wf:#33363a;--wf2:#4a4e54;--acc:#f0b429;--acc-ink:#2b1d00}}
+:root[data-theme="dark"]{--bg:#17181a;--card:#222427;--ink:#ecebe7;--mute:#9a9ea5;--line:#3a3d42;--wf:#33363a;--wf2:#4a4e54;--acc:#f0b429;--acc-ink:#2b1d00}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif}
+main{max-width:1000px;margin:0 auto;padding:32px 20px 64px}
+h1{font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.05;margin:0 0 12px;font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.6rem;margin:56px 0 6px;font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin:0 0 6px}
+p{margin:0 0 12px;max-width:68ch}
+.sub{color:var(--mute);font-size:1.1rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{border:1.5px solid var(--ink);border-radius:99px;padding:3px 12px;font-size:.9rem;background:var(--acc);color:var(--acc-ink);border-color:var(--acc-ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.persona{display:grid;grid-template-columns:200px 1fr;gap:24px}
+@media(max-width:640px){.persona{grid-template-columns:1fr}}
+.avatar{width:96px;height:96px;border-radius:50%;background:var(--acc);color:var(--acc-ink);display:grid;place-items:center;font-size:2.4rem;font-weight:800}
+ul{margin:0;padding-left:1.1rem}li{margin-bottom:4px}
+.wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.wrap pre.mermaid{margin:0;min-width:640px}
+.phones{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:20px}
+figure{margin:0}
+figcaption{font-size:.9rem;color:var(--mute);margin-top:8px;text-align:center}
+figcaption b{color:var(--ink)}
+.ph{aspect-ratio:9/17;border:2px solid var(--ink);border-radius:22px;background:var(--card);padding:12px 12px 10px;display:flex;flex-direction:column;gap:8px;overflow:hidden;position:relative;font-size:11px}
+.ph:before{content:"";width:40%;height:4px;border-radius:4px;background:var(--wf2);align-self:center;flex:none}
+.b{background:var(--wf);border-radius:6px;flex:none}
+.l{height:7px;background:var(--wf2);border-radius:4px;flex:none}
+.l.s{width:60%}.l.xs{width:35%}
+.img{background:var(--wf);border:1.5px dashed var(--wf2);border-radius:8px;display:grid;place-items:center;color:var(--mute);flex:none}
+.in{border:1.5px solid var(--wf2);border-radius:6px;height:26px;padding:5px 8px;color:var(--mute);flex:none}
+.btn{background:var(--acc);color:var(--acc-ink);border-radius:6px;height:28px;display:grid;place-items:center;font-weight:700;flex:none;margin-top:auto}
+.btn.ghost{background:none;border:1.5px solid var(--wf2);color:var(--mute);margin-top:0}
+.row{display:flex;gap:8px;align-items:center;flex:none}
+.sp{flex:1}
+.nav{margin-top:auto;display:flex;justify-content:space-around;border-top:1.5px solid var(--wf2);padding-top:6px;color:var(--mute);flex:none}
+.c{text-align:center}
+.note{font-size:.95rem;color:var(--mute)}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px;border:1px solid var(--line)}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>QuickBite<br>Food delivery app wireframes</h1>
+<p class="sub">UI/UX Design – Week 1 mini project: user persona, user flow, wireframes and design documentation.</p>
+<div class="chips"><span class="chip">User Persona</span><span class="chip">User Flow</span><span class="chip">Wireframes</span><span class="chip">Design Documentation</span></div>
+</header>
+
+<h2>1. User persona</h2>
+<p class="note">Based on assumed research: interviews and a short survey with college students who order food 2–4 times a week.</p>
+<div class="card persona">
+<div><div class="avatar">A</div><h3 style="margin-top:12px">Aarav Verma</h3><p class="note">22, B.Tech student<br>Meerut, Uttar Pradesh<br>Hostel resident, ₹3,000/month food budget</p></div>
+<div class="grid g2">
+<div><h3>Goals</h3><ul><li>Order a filling meal in under 2 minutes</li><li>Stay within a small budget</li><li>Know exactly when food will arrive</li></ul></div>
+<div><h3>Frustrations</h3><ul><li>Hidden delivery and tax charges at checkout</li><li>Too many steps to re-order a favourite</li><li>Delivery time estimates that are wrong</li></ul></div>
+<div><h3>Behaviour</h3><ul><li>Orders mostly at night, on a phone</li><li>Uses UPI for every payment</li><li>Sorts by price and rating first</li></ul></div>
+<div><h3>Needs from the app</h3><ul><li>Clear total price before paying</li><li>One-tap re-order</li><li>Live order tracking</li></ul></div>
+</div></div>
+
+<h2>2. User journey map</h2>
+<p class="note">Aarav orders dinner on a weeknight.</p>
+<div class="card" style="padding:0;overflow-x:auto"><table style="min-width:720px">
+<tr><th></th><th>Discover</th><th>Choose</th><th>Order</th><th>Wait</th><th>Receive</th></tr>
+<tr><th>Action</th><td>Opens app, sees nearby restaurants</td><td>Filters by price, opens a menu</td><td>Adds items, pays with UPI</td><td>Tracks the order</td><td>Eats, rates the meal</td></tr>
+<tr><th>Thinking</th><td>"What's cheap and quick tonight?"</td><td>"Is this worth the delivery fee?"</td><td>"What's my final total?"</td><td>"Where is my food?"</td><td>"Was it worth it?"</td></tr>
+<tr><th>Feeling</th><td>Neutral</td><td>Slightly stressed</td><td>Anxious about cost</td><td>Impatient</td><td>Happy, or annoyed if late</td></tr>
+<tr><th>Opportunity</th><td>Show "Under ₹150" first</td><td>Show fee upfront on the card</td><td>Show full bill before payment</td><td>Live map and accurate ETA</td><td>Quick rating and re-order button</td></tr>
+</table></div>
+
+<h2>3. User flow</h2>
+<div class="wrap"><pre class="mermaid">
+flowchart LR
+A([Open app]) --> B{First time?}
+B -- Yes --> C[Onboarding]
+B -- No --> D{Logged in?}
+C --> E[Sign up / Login]
+D -- No --> E
+D -- Yes --> F[Home]
+E --> F
+F --> G[Search or filter]
+G --> H[Restaurant menu]
+H --> I[Add to cart]
+I --> J[Cart]
+J --> K[Checkout: address + UPI]
+K --> L{Payment ok?}
+L -- No --> K
+L -- Yes --> M[Order tracking]
+M --> N([Delivered + rate])
+</pre></div>
+
+<h2>4. Low-fidelity wireframes</h2>
+<p class="note">Six core screens on a 9:17 phone frame. Grey boxes are content, dashed boxes are images, yellow is the primary action.</p>
+<div class="phones">
+
+<figure><div class="ph">
+<div class="img" style="height:38%">Illustration</div>
+<div class="l" style="width:80%;height:10px;align-self:center"></div><div class="l s" style="align-self:center"></div>
+<div class="row" style="justify-content:center"><span class="b" style="width:16px;height:6px;background:var(--acc)"></span><span class="b" style="width:6px;height:6px"></span><span class="b" style="width:6px;height:6px"></span></div>
+<div class="btn">Next</div><div class="c" style="color:var(--mute)">Skip</div>
+</div><figcaption><b>Onboarding</b><br>3 slides, skip anytime</figcaption></figure>
+
+<figure><div class="ph">
+<div class="c" style="font-weight:800;font-size:15px;margin-top:8px">QuickBite</div>
+<div class="l s" style="align-self:center"></div>
+<div class="in" style="margin-top:10px">Phone or email</div>
+<div class="in">Password</div>
+<div class="l xs" style="align-self:flex-end"></div>
+<div class="btn" style="margin-top:8px">Log in</div>
+<div class="c" style="color:var(--mute)">or</div>
+<div class="btn ghost">Continue with Google</div>
+<div class="c" style="color:var(--mute);margin-top:auto">New here? Sign up</div>
+</div><figcaption><b>Login</b><br>Simple form, social option</figcaption></figure>
+
+<figure><div class="ph">
+<div class="row"><div class="l xs"></div><div class="sp"></div><span class="b" style="width:18px;height:18px;border-radius:50%"></span></div>
+<div class="in">Search food or restaurants</div>
+<div class="row"><span class="b" style="padding:3px 8px">Under ₹150</span><span class="b" style="padding:3px 8px">Rating 4+</span><span class="b" style="padding:3px 8px">Fast</span></div>
+<div class="img" style="height:22%">Offer banner</div>
+<div class="row"><div class="img" style="width:44px;height:44px">img</div><div class="sp"><div class="l"></div><div class="l s" style="margin-top:5px"></div></div></div>
+<div class="row"><div class="img" style="width:44px;height:44px">img</div><div class="sp"><div class="l"></div><div class="l s" style="margin-top:5px"></div></div></div>
+<div class="nav"><span>Home</span><span>Search</span><span>Orders</span><span>Profile</span></div>
+</div><figcaption><b>Home</b><br>Filters first, bottom navigation</figcaption></figure>
+
+<figure><div class="ph">
+<div class="img" style="height:20%">Cover</div>
+<div class="l" style="width:70%;height:10px"></div><div class="l xs"></div>
+<div class="row"><div class="sp"><div class="l"></div><div class="l s" style="margin-top:5px"></div></div><span class="b" style="padding:4px 10px;background:var(--acc);color:var(--acc-ink);font-weight:700">Add</span></div>
+<div class="row"><div class="sp"><div class="l"></div><div class="l s" style="margin-top:5px"></div></div><span class="b" style="padding:4px 10px;background:var(--acc);color:var(--acc-ink);font-weight:700">Add</span></div>
+<div class="row"><div class="sp"><div class="l"></div><div class="l s" style="margin-top:5px"></div></div><span class="b" style="padding:4px 10px;background:var(--acc);color:var(--acc-ink);font-weight:700">Add</span></div>
+<div class="btn">View cart · 2 items</div>
+</div><figcaption><b>Restaurant menu</b><br>Sticky cart bar</figcaption></figure>
+
+<figure><div class="ph">
+<div class="l" style="width:40%;height:10px"></div>
+<div class="row"><div class="sp l"></div><span class="b" style="padding:2px 8px">− 1 +</span></div>
+<div class="row"><div class="sp l"></div><span class="b" style="padding:2px 8px">− 2 +</span></div>
+<div class="in">Delivery address</div>
+<div class="in">Pay with UPI</div>
+<div class="row"><span class="l sp"></span><span class="l xs"></span></div>
+<div class="row"><span class="l sp"></span><span class="l xs"></span></div>
+<div class="row" style="font-weight:700"><span class="sp">Total</span><span>₹ ---</span></div>
+<div class="btn">Place order</div>
+</div><figcaption><b>Cart and checkout</b><br>Full bill visible before paying</figcaption></figure>
+
+<figure><div class="ph">
+<div class="img" style="height:38%">Live map</div>
+<div class="l" style="width:60%;height:10px"></div><div class="l xs"></div>
+<div class="row"><span class="b" style="width:10px;height:10px;border-radius:50%;background:var(--acc)"></span><span class="l sp"></span></div>
+<div class="row"><span class="b" style="width:10px;height:10px;border-radius:50%;background:var(--acc)"></span><span class="l sp"></span></div>
+<div class="row"><span class="b" style="width:10px;height:10px;border-radius:50%"></span><span class="l sp"></span></div>
+<div class="btn ghost" style="margin-top:auto">Call delivery partner</div>
+</div><figcaption><b>Order tracking</b><br>ETA, status steps, contact</figcaption></figure>
+
+</div>
+
+<h2>5. Design documentation</h2>
+<div class="grid g2" style="margin-top:12px">
+<div class="card"><h3>Problem</h3><p>Students want a fast, low-cost way to order food, but existing apps hide charges until the last step and bury re-ordering.</p><h3>Goal</h3><p>Let a returning user go from opening the app to a placed order in under 2 minutes, with no surprise costs.</p></div>
+<div class="card"><h3>Scope</h3><ul><li>Platform: mobile (Android and iOS)</li><li>Fidelity: low, grayscale wireframes</li><li>Tool: Figma or hand sketches</li><li>Screens: 6 core screens</li></ul></div>
+<div class="card"><h3>Key design decisions</h3><ul><li>Price filters sit at the top of Home, matching how Aarav searches.</li><li>A sticky cart bar keeps the next step visible while browsing.</li><li>Checkout shows the full bill on one screen.</li><li>Bottom navigation keeps main areas within thumb reach.</li></ul></div>
+<div class="card"><h3>Usability principles applied</h3><ul><li>Visibility of system status: live tracking and ETA</li><li>Recognition over recall: recent orders and one-tap re-order</li><li>Error prevention: payment retry returns to checkout</li><li>Consistency: yellow always means the main action</li></ul></div>
+<div class="card"><h3>Visual system for later stages</h3><p><span class="sw" style="background:#e8a317"></span>Saffron yellow for primary actions<br><span class="sw" style="background:#1f2328"></span>Charcoal for text<br><span class="sw" style="background:#e9e7e2"></span>Warm grey for placeholders</p><p>Typeface: Schibsted Grotesk (fallback: system sans). Minimum touch target 44px.</p></div>
+<div class="card"><h3>Next steps</h3><ul><li>Redraw the wireframes in Figma with components</li><li>Test with 5 users on a clickable prototype</li><li>Fix issues, then move to high-fidelity screens</li></ul></div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<script>if(window.mermaid){mermaid.initialize({startOnLoad:true,theme:'neutral'});}</script>
+</body>
+</html>
